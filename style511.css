@@ -1,0 +1,1232 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root{
+    --primary-color:#8B8000;
+    --secondary-color:#162d20;
+    --light-background:#f3fdf7;
+    --light-color:#fff;
+    --text-color:#202020;
+    --light-color-2:#f7f7f7;
+    --font-family:"Manrope", serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+body{
+    font-family: var(--font-family);
+    background:var(--light-color);
+}
+
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+header .header_container{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+header .header_container .header_col{
+   flex: 1;
+}
+
+.logo_container{
+    width: 100px;
+}
+
+.logo_container .logo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_list_container{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav_list_container li{
+    list-style: none;
+    font-size: 16px;
+}
+
+.nav_list_container li a{
+    transition: 0.2s linear;
+    font-weight: 1000;
+}
+
+.nav_list_container li a:hover{
+    color: var(--primary-color);
+}
+
+.quote_btn {
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.quote_btn:hover {
+    background: #6d6600;
+}
+
+/* -------- HERO SECTION FIXED -------- */
+
+/* HERO BASE */
+
+.hero_text h1,
+.hero_text p,
+.hero_text h2 {
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 1), 
+                 0px 0px 35px rgba(0, 0, 0, 0.9),
+                 2px 4px 12px rgba(0, 0, 0, 1);
+}
+
+
+.hero_section {
+    position: relative;
+    width: 100%;
+}
+
+.hero_image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.hero_text {
+    position: absolute;
+    top: 35vh;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+/* RENT / SALE BUTTONS BETWEEN TEXT & WHITE BOX */
+.rent_sale_buttons {
+    width: 100%;
+    position: absolute;
+    top: 58vh; /* tune this up/down for spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 50;
+}
+
+/* For Rent */
+.rent_btn {
+    background: #8B8000;       /* GOLD/DARK YELLOW */
+    color: white;
+    padding: 10px 32px;
+    font-size: 17px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.rent_btn:hover {
+    background: #6d6600;
+}
+
+/* For Sale */
+.sale_btn {
+    background: white;
+    color: black;
+    padding: 10px 32px;
+    font-size: 17px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.sale_btn:hover {
+    background: #9b9a90;
+}
+
+/* WHITE SEARCH BOX */
+.property_filter_section {
+    width: 100%;
+    position: absolute;
+    top: 70vh;  /* box sits BELOW rent/sale buttons */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 40;
+    display: flex;
+    justify-content: center;
+}
+
+.filter_container {
+    background: #ffffff;
+    width: 70%;               /* smaller box */
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
+}
+
+/* FILTER INPUTS */
+.filters_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.filter_group {
+    flex: 1;
+}
+
+.filter_group label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.filter_group input,
+.filter_group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+    height: 40px;
+}
+
+/* FIND MY HOME BUTTON */
+.find_btn_wrapper {
+    display: flex;
+    align-items: end;
+}
+
+.find_my_home_btn {
+    padding: 10px 25px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.find_my_home_btn:hover {
+    background: #6d6600;
+}
+
+/* FEATURED SECTION */
+.featured_section {
+    width: 100%;
+    padding: 80px 0;
+    text-align: center;
+    background: #ffffff;
+}
+
+.featured_subtitle {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.featured_title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: #202020;
+}
+
+/* Tabs */
+.property_tabs {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 50px;
+}
+
+.property_tabs .tab {
+    padding: 12px 26px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    background: #f3f3f3;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.property_tabs .tab.active {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.property_tabs .tab:hover {
+    background: var(--primary-color);
+    color: white;
+    
+}
+
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 20px;
+}
+
+.property-card {
+    width: 100%;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 4px 18px rgba(0,0,0,1.03);
+}
+
+.property-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.property-content {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.property-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.property-specs {
+    font-size: 14px;
+    color: #555;
+}
+
+.property-specs span {
+    margin-right: 12px;
+}
+
+.property-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    white-space: nowrap;
+}
+
+.property-title:hover,
+.property-price:hover {
+    color: #6d6600;
+}
+
+.property-card {
+    cursor: pointer;
+}
+
+/* OUR SERVICES SECTION */
+.services_section {
+    width: 100%;
+    padding: 80px 0;
+    background: #ffffff;
+    text-align: center;
+}
+
+.services_subtitle {
+    color: #6d6600;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.services_title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    color: #1b1b1b;
+}
+
+.services_container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* LEFT IMAGE */
+.services_image img {
+    width: 550px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+}
+
+/* RIGHT TEXT CONTENT */
+.services_content {
+    text-align: left;
+    flex: 1;
+}
+
+.services_heading {
+    font-size: 32px;
+    font-weight: 800;
+    color: #6d6600;
+    margin-bottom: 12px;
+}
+
+.services_tagline {
+    font-size: 18px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.services_text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .services_container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .services_content {
+        text-align: center;
+    }
+
+    .services_image img {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+.service-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 80px;
+    gap: 40px;
+}
+
+.service-content {
+    flex: 1;
+}
+
+.service-title {
+    font-size: 40px;
+    color: #6d6600;
+    margin-bottom: 10px;
+}
+
+.service-subtitle {
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.service-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    max-width: 550px;
+}
+
+.service-image {
+    flex: 1;
+}
+
+.service-image img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .service-section {
+        flex-direction: column;
+        padding: 30px;
+    }
+}
+
+.rent-home-section {
+    width: 100%;
+    padding: 60px 0;
+    background: #f5f5f5;
+}
+
+.rent-home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;          /* reduced from 90% to push content outward */
+    max-width: 1350px;   /* increased to reduce empty side space */
+    margin: auto;
+    gap: 30px;           /* slightly reduced gap between image & text */
+}
+
+.rent-home-image img {
+    width: 100%;
+    max-width: 700px;    /* increased image width slightly */
+    border-radius: 12px;
+    object-fit: cover;
+    margin-left: -90px;   /* adjust this value as needed */
+}
+
+.rent-home-content {
+    max-width: 550px;
+}
+
+.rent-home-content h2 {
+    font-size: 38px;
+    font-weight: 700;
+    color: #6d6600;
+    margin-bottom: 10px;
+}
+
+.rent-home-content .subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.rent-home-content .description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
+}
+
+.location-section {
+    width: 100%;
+    margin: 0;
+    padding-top: 35px;       /* small space after rent image */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0;
+    padding-top: 80px;
+    color: #6d6600;
+}
+
+/* ========== SLIDER ========== */
+.video-slider {
+  position: relative;
+  width: 100%;
+  /* set the height you want for the banner */
+  height: 65vh;
+  min-height: 380px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* container holds absolutely positioned slides */
+.slides-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* each slide sits absolutely and transitions horizontally */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 100%;                 /* start off to the right */
+  opacity: 0;
+  transition: transform 0.9s cubic-bezier(.22,.9,.36,1), left 0.9s ease, opacity 0.5s ease;
+  will-change: transform, left, opacity;
+}
+
+/* active slide moves into place */
+.slide.active {
+  left: 0;
+  opacity: 1;
+}
+
+/* To create sliding effect from left when moving backwards
+   we rely on the fact that the active slide becomes left:0 while others are left:100%
+   This is a simple implementation that looks like the movement in your video. */
+
+/* image covers the whole slide */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(65%); /* darken background so text is readable */
+}
+
+/* text block over image */
+.slide-text {
+  position: absolute;
+  left: 6%;
+  bottom: 60px;
+  color: #fff;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.55);
+  max-width: 58%;
+}
+
+/* city title and subtitle */
+.slide-text h2 {
+  font-size: 64px;
+  line-height: 0.95;
+  margin-bottom: 8px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.slide-text p {
+  font-size: 20px;
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* ========== NAVIGATION BUTTONS ========== */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  background: rgba(0,0,0,0.35);
+  border: 0;
+  color: #fff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.slider-btn:hover { background: rgba(0,0,0,0.5); transform: translateY(-50%) scale(1.03); }
+.slider-btn:active { transform: translateY(-50%) scale(0.98); }
+.slider-btn:focus { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* left / right positions */
+.slider-btn.prev { left: 22px; }
+.slider-btn.next { right: 22px; }
+
+/* small slide counter (optional) */
+.slide-counter {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 50;
+  color: rgba(255,255,255,0.95);
+  font-weight: 600;
+  background: rgba(0,0,0,0.18);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1100px) {
+  .slide-text h2 { font-size: 48px; }
+  .slide-text { max-width: 70%; left: 5%; bottom: 50px; }
+}
+
+@media (max-width: 720px) {
+  .video-slider { height: 50vh; min-height: 320px; }
+  .slide-text h2 { font-size: 32px; }
+  .slide-text p { font-size: 16px; }
+  .slide-text { max-width: 86%; left: 5%; bottom: 36px; }
+  .slider-btn { width: 44px; height: 44px; font-size: 18px; }
+  .slider-btn.prev { left: 12px; }
+  .slider-btn.next { right: 12px; }
+}
+
+/* ensure no extra spacing from images or containers anywhere */
+img { display: block; max-width: 100%; height: auto; }
+
+/* Section Layout */
+.propertyShowcase {
+    text-align: center;
+    padding: 50px 5%;
+    background: #fff;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+/* Subtitle */
+.propertyShowcase_sub {
+    color: #6d6600;
+    grid-column: 1 / -1;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Title */
+.propertyShowcase_title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #111;
+    grid-column: 1 / -1;
+}
+
+/* Card */
+.estateCard {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 1.03s ease;
+}
+
+.estateCard:hover {
+     transform: translateY(-12px);
+    box-shadow: 0 4px 18px rgba(0,0,0,1.03);
+}
+
+/* Image */
+.estateImage {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+/* Content */
+.estateInfo {
+    padding: 20px;
+    text-align: left;
+}
+
+/* Title */
+.estateTitle {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.estateTitle:hover{
+    color: #6d6600;
+}
+
+/* Specs Row */
+.estateSpecs {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.estate-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    white-space: nowrap;
+}
+
+.estate-price:hover {
+    color: #6d6600;
+}
+
+.estateCard {
+    cursor: pointer;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+    .propertyShowcase {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .propertyShowcase {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* OUR SERVICES SECTION */
+.services_section {
+    width: 100%;
+    padding: 80px 0;
+    background: #ffffff;
+    text-align: center;
+}
+
+.services_subtitle {
+    color: #6d6600;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.services_title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    color: #1b1b1b;
+}
+
+.services_container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* LEFT IMAGE */
+.services_image img {
+    width: 550px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+}
+
+/* RIGHT TEXT CONTENT */
+.services_content {
+    text-align: left;
+    flex: 1;
+}
+
+.services_heading {
+    font-size: 32px;
+    font-weight: 800;
+    color: #6d6600;
+    margin-bottom: 12px;
+}
+
+.services_tagline {
+    font-size: 18px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.services_text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .services_container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .services_content {
+        text-align: center;
+    }
+
+    .services_image img {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+.service-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 80px;
+    gap: 40px;
+}
+
+.service-content {
+    flex: 1;
+}
+
+.service-title {
+    font-size: 40px;
+    color: #6d6600;
+    margin-bottom: 10px;
+}
+
+.service-subtitle {
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.service-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    max-width: 550px;
+}
+
+.service-image {
+    flex: 1;
+}
+
+.service-image img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .service-section {
+        flex-direction: column;
+        padding: 30px;
+    }
+}
+
+.rent-home-section {
+    width: 100%;
+    padding: 60px 0;
+    background: #f5f5f5;
+}
+
+.rent-home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;          /* reduced from 90% to push content outward */
+    max-width: 1350px;   /* increased to reduce empty side space */
+    margin: auto;
+    gap: 30px;           /* slightly reduced gap between image & text */
+}
+
+.rent-home-image img {
+    width: 100%;
+    max-width: 700px;    /* increased image width slightly */
+    border-radius: 12px;
+    object-fit: cover;
+    margin-left: -90px;   /* adjust this value as needed */
+}
+
+.rent-home-content {
+    max-width: 550px;
+}
+
+.rent-home-content h2 {
+    font-size: 38px;
+    font-weight: 700;
+    color: #6d6600;
+    margin-bottom: 10px;
+}
+
+.rent-home-content .subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.rent-home-content .description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444;
+}
+
+.location-section {
+    width: 100%;
+    margin: 0;
+    padding-top: 35px;       /* small space after rent image */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0;
+    padding-top: 80px;
+    color: #6d6600;
+}
+
+/* ========== SLIDER ========== */
+.video-slider {
+  position: relative;
+  width: 100%;
+  /* set the height you want for the banner */
+  height: 65vh;
+  min-height: 380px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* container holds absolutely positioned slides */
+.slides-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* each slide sits absolutely and transitions horizontally */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 100%;                 /* start off to the right */
+  opacity: 0;
+  transition: transform 0.9s cubic-bezier(.22,.9,.36,1), left 0.9s ease, opacity 0.5s ease;
+  will-change: transform, left, opacity;
+}
+
+/* active slide moves into place */
+.slide.active {
+  left: 0;
+  opacity: 1;
+}
+
+/* To create sliding effect from left when moving backwards
+   we rely on the fact that the active slide becomes left:0 while others are left:100%
+   This is a simple implementation that looks like the movement in your video. */
+
+/* image covers the whole slide */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(65%); /* darken background so text is readable */
+}
+
+/* text block over image */
+.slide-text {
+  position: absolute;
+  left: 6%;
+  bottom: 60px;
+  color: #fff;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.55);
+  max-width: 58%;
+}
+
+/* city title and subtitle */
+.slide-text h2 {
+  font-size: 64px;
+  line-height: 0.95;
+  margin-bottom: 8px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.slide-text p {
+  font-size: 20px;
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* ========== NAVIGATION BUTTONS ========== */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  background: rgba(0,0,0,0.35);
+  border: 0;
+  color: #fff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.slider-btn:hover { background: rgba(0,0,0,0.5); transform: translateY(-50%) scale(1.03); }
+.slider-btn:active { transform: translateY(-50%) scale(0.98); }
+.slider-btn:focus { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* left / right positions */
+.slider-btn.prev { left: 22px; }
+.slider-btn.next { right: 22px; }
+
+/* small slide counter (optional) */
+.slide-counter {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 50;
+  color: rgba(255,255,255,0.95);
+  font-weight: 600;
+  background: rgba(0,0,0,0.18);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1100px) {
+  .slide-text h2 { font-size: 48px; }
+  .slide-text { max-width: 70%; left: 5%; bottom: 50px; }
+}
+
+@media (max-width: 720px) {
+  .video-slider { height: 50vh; min-height: 320px; }
+  .slide-text h2 { font-size: 32px; }
+  .slide-text p { font-size: 16px; }
+  .slide-text { max-width: 86%; left: 5%; bottom: 36px; }
+  .slider-btn { width: 44px; height: 44px; font-size: 18px; }
+  .slider-btn.prev { left: 12px; }
+  .slider-btn.next { right: 12px; }
+}
+
+/* ensure no extra spacing from images or containers anywhere */
+img { display: block; max-width: 100%; height: auto; }
+
+/* Section Layout */
+.propertyShowcase {
+    text-align: center;
+    padding: 50px 5%;
+    background: #fff;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+/* Subtitle */
+.propertyShowcase_sub {
+    color: #6d6600;
+    grid-column: 1 / -1;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Title */
+.propertyShowcase_title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #111;
+    grid-column: 1 / -1;
+}
+
+/* Card */
+.estateCard {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 1.03s ease;
+}
+
+.estateCard:hover {
+     transform: translateY(-12px);
+    box-shadow: 0 4px 18px rgba(0,0,0,1.03);
+}
+
+/* Image */
+.estateImage {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+/* Content */
+.estateInfo {
+    padding: 20px;
+    text-align: left;
+}
+
+/* Title */
+.estateTitle {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.estateTitle:hover{
+    color: #6d6600;
+}
+
+/* Specs Row */
+.estateSpecs {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.estate-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    white-space: nowrap;
+}
+
+.estate-price:hover {
+    color: #6d6600;
+}
+
+.estateCard {
+    cursor: pointer;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+    .propertyShowcase {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .propertyShowcase {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,571 @@
+<!-- FULL UPDATED HTML WITH SITE VISIT POPUP INTEGRATED -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NCR Monarch and Crown — Property</title>
+  <link rel="stylesheet" href="style100.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Minimal inline helpers for modal (main modal CSS lives in style100.css) */
+    /* keep this tiny block so we don't remove anything else in your head */
+    .vis-hidden { position: absolute; width:1px; height:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="logo">Property Hub</div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="About51.html">About</a>
+        <a href="Properties51.html">Properties</a>
+        <a href="Services51.html">Services</a>
+        <a href="Contact51.html">Contact</a>
+      </nav>
+      <button class="quote-btn">Request a Quote</button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero-card">
+      <div class="hero-left">
+        <div id="openGalleryBtn" class="preview">
+          <img id="previewImage" src="https://newprojects.99acres.com/projects/ncr_group/ncr_monarch/images/i0py09ca_med.jpg">
+          <div class="preview-overlay">
+            <div class="badges">
+              <span class="badge">RERA</span>
+              <span class="badge">ZERO BROKERAGE</span>
+              <span class="badge">3D</span>
+            </div>
+            <div class="meta-bottom">
+              <span class="status">Ready To Move · Since Jun, 2020</span>
+              <span class="count">1 / 12</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <h1 class="project-title">NCR Monarch and Crown</h1>
+        <div class="project-sub">Sector 1 — Greater Noida West</div>
+
+        <div class="top-row">
+          <div class="price-range">₹ 92.63 L - 1.72 Cr</div>
+          <div class="rating">★ 4.2</div>
+        </div>
+
+        <div class="bhk-boxes">
+          <div class="bhk-item"><div class="bhk-title">2 BHK Apartment</div><div class="bhk-price">₹92.63 L - 1.72 Cr</div></div>
+          <div class="bhk-item"><div class="bhk-title">3 BHK Apartment</div><div class="bhk-price">₹1.21 - 1.6 Cr</div></div>
+        </div>
+
+        <p class="short-desc"><b>Why you should consider NCR Monarch and Crown?</b><br>1. Spacious housing<br>2. Connected to Delhi<br>3. Eco friendly<br>4. Price appreciation<br>5. Power backup</p>
+
+        <div class="actions">
+          <button id="openGalleryBtn2" class="btn primary">View Gallery</button>
+          <a id="openSiteVisit" class="btn ghost" href="#"> Book Your Site Visit Slot </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ========== SITE VISIT POPUP (REPLACED BROCHURE POPUP) ========== -->
+  <div id="siteVisitOverlay" class="site-visit-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="siteVisitTitle">
+    <div class="site-visit-dialog" role="document">
+      <button id="closeSiteVisit" class="sv-close" aria-label="Close site visit form">✕</button>
+
+      <div id="siteFormWrap" class="sv-content">
+        <h2 id="siteVisitTitle">Book Your Site Visit Slot</h2>
+        <p class="sv-sub">Please share a few details and choose a date. Our expert will contact you within 24 hours.</p>
+
+        <form id="siteVisitForm" novalidate>
+          <!-- Name -->
+          <div class="sv-field">
+            <label for="svName">Name</label>
+            <input id="svName" name="name" type="text" class="sv-input" autocomplete="name" placeholder="Your full name" />
+            <div id="nameError" class="sv-hint">Use Only Alphabet</div>
+          </div>
+
+          <!-- Phone with +91 prefix -->
+          <div class="sv-field">
+            <label for="svPhone">Phone</label>
+            <div class="phone-row">
+              <span class="phone-prefix">+91</span>
+              <input id="svPhone" name="phone" type="tel" class="sv-input phone-input" autocomplete="tel" placeholder="Enter 10 digit number" maxlength="10" />
+            </div>
+            <div id="phoneError" class="sv-hint">Use Only Numbers</div>
+          </div>
+
+          <!-- Email -->
+          <div class="sv-field">
+            <label for="svEmail">Email</label>
+            <input id="svEmail" name="email" type="email" class="sv-input" autocomplete="email" placeholder="you@example.com" />
+            <div id="emailError" class="sv-hint">Please Enter an Appropriate Email Address</div>
+          </div>
+
+          <!-- Date picker -->
+          <div class="sv-field">
+            <label for="svDate">Choose Date</label>
+            <input id="svDate" name="date" type="date" class="sv-input" />
+            <div id="dateError" class="sv-hint">Please select a date</div>
+          </div>
+
+          <!-- General submission error -->
+          <div id="generalError" class="sv-general-error">Please Fill The Neccessary Requirement</div>
+
+          <!-- Submit -->
+          <div class="sv-actions">
+            <button id="svSubmit" type="submit" class="btn sv-submit">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success panel (hidden initially) -->
+      <div id="svSuccess" class="sv-success" aria-live="polite" style="display:none;">
+        <h3>Detailed Submitted Successfully</h3>
+        <p>Your information has been send to our expert.</p>
+        <p>They will reach you within 24 hours.</p>
+        <p><strong>Thanks For Choosing Property Hub</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAILS / AMENITIES / FLOORPLANS (unchanged) -->
+  <section class="details">
+    <h2><u>More about NCR Monarch and Crown</u></h2>
+    <p class="lead">
+     NCR Monarch and Crown in Sector 1 Greater Noida West is a ready-to-move housing society. It offers apartments in varied budget range. These units are a perfect combination of comfort and style, specifically designed to suit your requirements and conveniences. There are 1BHK, 2BHK and 3BHK Apartments available in this project. This housing society is now ready to be called home as families have started moving in. Check out some of the features of NCR Monarch and Crown housing society:<br>
+     <br>NCR Monarch and Crown Sector 1 Greater Noida West has 4 towers, with 25 floors each and 632 units on offer.<br>
+     <br>Spread over an area of 4 acres, NCR Monarch and Crown Sector 1 Greater Noida West is one of the spacious housing societies in the Greater Noida region. With all the basic amenities available, NCR Monarch and Crown fits into your budget and your lifestyle.<br>
+     <br>Sector 1 Greater Noida West has good connectivity to some of the important areas in the proximity such as Sanfort Play School Noida Extension, Ace City Square Mall and Yatharth Super Speciality Noida Extn and so on.<br>
+    <br><b>How is Sector 1 Greater Noida West for property investment?</b><br>
+    <br>Sector 1 Greater Noida West is one of the prime locations to own a home in Greater Noida. It has a promising social and physical infrastructure and an emerging neighbourhood. Check out few benefits of staying in this locality:<br>
+   <br> D.S International School, 1.9 KM<br>
+    Sarvottam Institute Of Technology & Mgmt, 5.8 KM<br>
+    Noida Sector 81 Metro Station, 9.7 KM<br>
+    Noida-Greater Noida Expy, Uttar Pradesh, 17.5 KM<br>
+    Indira Gandhi Intl Airport, 42.9 KM<br>
+    </p>
+  </section>
+
+  <section class="facilities-section">
+  <h2>Top Facilities</h2>
+  <p class="subtitle">
+    Premium lifestyle amenities designed for comfort, health, and recreation.
+  </p>
+
+  <div class="facilities-grid">
+
+    <div class="facility-card">
+      <img src="https://static.99acres.com/universalapp/img/swimming_pool.png" alt="Swimming Pool">
+      <h4>Swimming Pool</h4>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://static.99acres.com/universalapp/img/gymnasium.png" alt="Gymnasium">
+      <h4>Gymnasium</h4>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://static.99acres.com/universalapp/img/club.png" alt="Club House">
+      <h4>Club House</h4>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://static.99acres.com/universalapp/img/kids_play_area.png" alt="Children's Play Area">
+      <h4>Children's Play Area</h4>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://static.99acres.com/universalapp/img/park_new.png" alt="Park">
+      <h4>Park</h4>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://static.99acres.com/universalapp/img/jogging_track.png" alt="Jogging Track">
+      <h4>Jogging Track</h4>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://static.99acres.com/universalapp/img/badminton_court.png" alt="Badminton Court">
+      <h4>Badminton Court</h4>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://static.99acres.com/universalapp/img/restaurant.png" alt="Restaurant">
+      <h4>Restaurant</h4>
+    </div>
+
+    <div class="facility-card">
+      <img src="https://static.99acres.com/universalapp/img/atm.png" alt="ATM">
+      <h4>ATM</h4>
+    </div>
+
+  </div>
+</section>
+
+  <section class="floor-section">
+  <h2>Floor Plans & Pricing</h2>
+
+  <div class="floor-grid">
+
+    <div class="floor-card">
+      <img src="https://newprojects.99acres.com/projects/ncr_group/ncr_monarch/maps/ecxq64oh.jpg" alt="2 BHK Plan"
+           onclick="openModal(this.src)">
+      <h3>2 BHK</h3>
+      <p>Area: 950 sq.ft</p>
+    </div>
+
+    <div class="floor-card">
+      <img src="https://projectcdn.99acres.com/project_data/1e5b76/block1_7189/3D/7342_B1_1F6_3D.jpg" alt="3 BHK Plan"
+           onclick="openModal(this.src)">
+      <h3>3 BHK</h3>
+      <p>Area: 1,200 sq.ft</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 3D MODAL -->
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeModal()">×</span>
+
+  <div class="modal-content">
+    <img id="modalImage" src="">
+  </div>
+
+  <div class="zoom-controls">
+    <button onclick="zoomIn()">+</button>
+    <button onclick="zoomOut()">−</button>
+    <button onclick="resetZoom()">Reset</button>
+  </div>
+</div>
+
+  </main>
+
+  <!-- ========== FULLSCREEN GALLERY LIGHTBOX ========= (unchanged)-->
+  <div id="galleryLightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Gallery">
+    <button class="lightbox-close" id="lbClose" aria-label="Close gallery">✕</button>
+
+    <div class="lightbox-stage">
+      <button class="nav prev" id="lbPrev" aria-label="Previous">‹</button>
+
+      <div class="slide-frame" id="slideFrame" aria-live="polite">
+        <!-- JS injects <img>, <video> or <iframe> here -->
+      </div>
+
+      <button class="nav next" id="lbNext" aria-label="Next">›</button>
+    </div>
+
+    <div class="thumbs" id="thumbsRow" role="list">
+      <!-- thumbnails created by JS -->
+    </div>
+  </div>
+
+  <!-- ========== FLOORPLAN POPUP (Pan/Zoom simple) ========= (unchanged)-->
+  <div id="floorModal" class="floor-modal" aria-hidden="true" role="dialog" aria-label="Floor plan">
+    <button class="floor-close" id="floorClose">✕</button>
+    <div class="floor-wrapper">
+      <img id="floorImage" src="https://newprojects.99acres.com/projects/ncr_group/ncr_monarch/maps/ecxq64oh.jpg" alt="Floor plan">
+    </div>
+    <p class="hint">Use mouse wheel or pinch to zoom. Drag to pan. Press ✕ to close.</p>
+  </div>
+
+  <!-- Inline JS for site-visit modal (keeps other script1.js unchanged) -->
+  <script>
+    (function(){
+      // Elements
+      const openLink = document.getElementById('openSiteVisit'); // anchor
+      const overlay = document.getElementById('siteVisitOverlay');
+      const closeBtn = document.getElementById('closeSiteVisit');
+      const form = document.getElementById('siteVisitForm');
+      const svName = document.getElementById('svName');
+      const svPhone = document.getElementById('svPhone');
+      const svEmail = document.getElementById('svEmail');
+      const svDate = document.getElementById('svDate');
+
+      const nameError = document.getElementById('nameError');
+      const phoneError = document.getElementById('phoneError');
+      const emailError = document.getElementById('emailError');
+      const dateError = document.getElementById('dateError');
+      const generalError = document.getElementById('generalError');
+
+      const svSuccess = document.getElementById('svSuccess');
+      const siteFormWrap = document.getElementById('siteFormWrap');
+      const svSubmit = document.getElementById('svSubmit');
+
+      // initial hide hints
+      [nameError, phoneError, emailError, dateError, generalError].forEach(h => h.style.display = 'none');
+
+      // open overlay
+      openLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        overlay.style.display = 'flex';
+        overlay.removeAttribute('aria-hidden');
+        // reset form + UI
+        form.reset();
+        resetFieldStyles();
+        svSuccess.style.display = 'none';
+        siteFormWrap.style.display = 'block';
+        // set date min to today
+        const today = new Date().toISOString().split('T')[0];
+        svDate.setAttribute('min', today);
+        svName.focus();
+        // add blur to body by toggling class (styles in CSS)
+        document.body.classList.add('sv-modal-open');
+      });
+
+      // close overlay
+      function closeOverlay(){
+        overlay.style.display = 'none';
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('sv-modal-open');
+      }
+      closeBtn.addEventListener('click', closeOverlay);
+      overlay.addEventListener('click', (e) => {
+        if(e.target === overlay) closeOverlay();
+      });
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && overlay.style.display === 'flex') closeOverlay();
+      });
+
+      // Helper: reset error styles
+      function resetFieldStyles(){
+        [svName, svPhone, svEmail, svDate].forEach(inp => {
+          inp.classList.remove('sv-invalid');
+        });
+        [nameError, phoneError, emailError, dateError].forEach(h => h.style.display = 'none');
+        generalError.style.display = 'none';
+      }
+
+      // Name: only alphabets and spaces allowed
+      svName.addEventListener('input', (e) => {
+        const original = svName.value;
+        // Allow letters, spaces, hyphen and apostrophe
+        const filtered = original.replace(/[^A-Za-z\s'-]/g, '');
+        if(filtered !== original){
+          svName.value = filtered;
+          nameError.style.display = 'block';
+        } else {
+          nameError.style.display = 'none';
+        }
+        svName.classList.remove('sv-invalid');
+      });
+
+      svName.addEventListener('blur', () => {
+        if(!svName.value.trim()){
+          nameError.style.display = 'block';
+          svName.classList.add('sv-invalid');
+        } else {
+          nameError.style.display = 'none';
+          svName.classList.remove('sv-invalid');
+        }
+      });
+
+      // Phone: only digits allowed, maxlength enforced (10)
+      svPhone.addEventListener('keydown', (e) => {
+        // allow navigation keys
+        const allowedKeys = ['Backspace','ArrowLeft','ArrowRight','Delete','Tab'];
+        if(allowedKeys.includes(e.key)) return;
+        // allow digits only
+        if(!/^[0-9]$/.test(e.key) || svPhone.value.length >= 10){
+          e.preventDefault();
+          phoneError.style.display = 'block';
+        } else {
+          phoneError.style.display = 'none';
+        }
+      });
+
+      svPhone.addEventListener('input', () => {
+        const filtered = svPhone.value.replace(/[^0-9]/g, '').slice(0,10);
+        if(filtered !== svPhone.value) {
+          phoneError.style.display = 'block';
+        } else {
+          phoneError.style.display = 'none';
+        }
+        svPhone.value = filtered;
+        svPhone.classList.remove('sv-invalid');
+      });
+
+      svPhone.addEventListener('blur', () => {
+        if(!/^\d{10}$/.test(svPhone.value)){
+          phoneError.style.display = 'block';
+          svPhone.classList.add('sv-invalid');
+        } else {
+          phoneError.style.display = 'none';
+          svPhone.classList.remove('sv-invalid');
+        }
+      });
+
+      // Email validation
+      function validateEmail(val){
+        // simple but robust-ish regex
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        return re.test(val);
+      }
+      svEmail.addEventListener('input', () => {
+        if(svEmail.value.trim() === '') {
+          emailError.style.display = 'none';
+          svEmail.classList.remove('sv-invalid');
+          return;
+        }
+        if(!validateEmail(svEmail.value)){
+          emailError.style.display = 'block';
+        } else {
+          emailError.style.display = 'none';
+        }
+        svEmail.classList.remove('sv-invalid');
+      });
+      svEmail.addEventListener('blur', () => {
+        if(!validateEmail(svEmail.value)){
+          emailError.style.display = 'block';
+          svEmail.classList.add('sv-invalid');
+        } else {
+          emailError.style.display = 'none';
+          svEmail.classList.remove('sv-invalid');
+        }
+      });
+
+      // Date validation (must be selected)
+      svDate.addEventListener('input', () => {
+        if(!svDate.value){
+          dateError.style.display = 'block';
+        } else {
+          dateError.style.display = 'none';
+        }
+        svDate.classList.remove('sv-invalid');
+      });
+
+      // Submit handler
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        resetFieldStyles();
+
+        let valid = true;
+
+        // Name check
+        if(!svName.value.trim()){
+          svName.classList.add('sv-invalid');
+          nameError.style.display = 'block';
+          valid = false;
+        }
+
+        // Phone check (10 digits)
+        if(!/^\d{10}$/.test(svPhone.value)){
+          svPhone.classList.add('sv-invalid');
+          phoneError.style.display = 'block';
+          valid = false;
+        }
+
+        // Email check
+        if(!validateEmail(svEmail.value)){
+          svEmail.classList.add('sv-invalid');
+          emailError.style.display = 'block';
+          valid = false;
+        }
+
+        // Date check
+        if(!svDate.value){
+          svDate.classList.add('sv-invalid');
+          dateError.style.display = 'block';
+          valid = false;
+        }
+
+        if(!valid){
+          generalError.style.display = 'block';
+          return;
+        }
+
+        // If valid: show success panel inside the same overlay (as requested),
+        // simulate sending and auto close after 10s.
+        siteFormWrap.style.display = 'none';
+        svSuccess.style.display = 'block';
+        generalError.style.display = 'none';
+
+        // (Optional) Here you can send the data to your server via fetch()
+        // Example:
+        // fetch('/api/visit', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name: svName.value, phone: svPhone.value, email: svEmail.value, date: svDate.value }) })
+
+        // Auto close success after 10s
+        setTimeout(() => {
+          closeOverlay();
+        }, 10000);
+      });
+
+      // Prevent scrolling of the page while modal is open
+      const observer = new MutationObserver(() => {
+        if(document.body.classList.contains('sv-modal-open')){
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      });
+      observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    })();
+  </script>
+
+  <script>
+  let scale = 1;
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+
+  function openModal(src) {
+    modal.style.display = "block";
+    modalImg.src = src;
+    scale = 1;
+    modalImg.style.transform = `scale(${scale})`;
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  function zoomIn() {
+    scale += 0.1;
+    modalImg.style.transform = `scale(${scale})`;
+  }
+
+  function zoomOut() {
+    if (scale > 0.5) {
+      scale -= 0.1;
+      modalImg.style.transform = `scale(${scale})`;
+    }
+  }
+
+  function resetZoom() {
+    scale = 1;
+    modalImg.style.transform = `scale(1)`;
+  }
+
+  // Mouse wheel zoom
+  modal.addEventListener("wheel", function (e) {
+    e.preventDefault();
+    if (e.deltaY < 0) zoomIn();
+    else zoomOut();
+  });
+</script>
+
+
+  <!-- your existing JS file left untouched -->
+  <script src="script1.js" defer></script>
+
+  
+
+ <footer class="footer">
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="About51.html">About</a>
+        <a href="Properties51.html">Properties</a>
+        <a href="Services51.html">Services</a>
+        <a href="Contact51.html">Contact</a>
+    </div>
+
+    <p class="footer-copy">2025 © Property Hub, All rights reserved.</p>
+</footer>

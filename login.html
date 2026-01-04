@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Property Hub</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+
+            /* BACKGROUND IMAGE FROM YOUR UPLOADED FILE */
+            background: url('Screenshot 2025-11-25 122133.png') no-repeat center center/cover;
+
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(2px);
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 2;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            width: 380px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        p.subtitle {
+            margin: 0 0 25px 0;
+            color: #666;
+            font-size: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-top: 12px;
+            border: 1.4px solid #ccc;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.2s ease;
+        }
+
+        input:focus {
+            border-color: #b29400;
+            box-shadow: 0 0 4px rgba(178,148,0,0.4);
+        }
+
+        .login-btn,
+        .create-btn,
+        .close-btn {
+            width: 100%;
+            background: #b29400;
+            border: none;
+            padding: 14px;
+            margin-top: 22px;
+            border-radius: 10px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            transition: 0.25s ease;
+            font-weight: 600;
+        }
+
+        .login-btn:hover,
+        .create-btn:hover,
+        .close-btn:hover {
+            background: #8a7400;
+        }
+
+        .signup-text {
+            margin-top: 22px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .signup-text a {
+            color: #b29400;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* ------------------ MODALS ------------------*/
+        
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+        }
+
+        .modal-content {
+            background: white;
+            width: 380px;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+            animation: fadeIn 0.3s ease;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {transform: scale(0.85); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+
+        .success-message {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="overlay"></div>
+
+    <!-- LOGIN BOX -->
+    <div class="login-container">
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Login to access your dream home</p>
+
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Email Address" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+
+            <button class="login-btn" type="submit">Login</button>
+        </form>
+
+        <p class="signup-text">
+            Don’t have an account?
+            <a id="openSignup">Sign Up</a>
+        </p>
+    </div>
+
+    <!-- SIGN UP MODAL -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <h2>Create Account</h2>
+
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="password" id="password" placeholder="Create Password" required>
+
+            <button class="create-btn" id="createAccount">Create Account</button>
+            <button class="close-btn" onclick="closeModal('signupModal')">Close</button>
+        </div>
+    </div>
+
+    <!-- SUCCESS MODAL -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <p class="success-message">🎉 Account created successfully!<br>Redirecting...</p>
+            <button class="close-btn" onclick="closeModal('successModal')">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const signupModal = document.getElementById("signupModal");
+        const successModal = document.getElementById("successModal");
+        const openSignup = document.getElementById("openSignup");
+        const createAccount = document.getElementById("createAccount");
+        const loginForm = document.getElementById("loginForm");
+
+        // OPEN SIGNUP MODAL
+        openSignup.onclick = () => signupModal.style.display = "flex";
+
+        // CLOSE ANY MODAL
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        // LOGIN -> REDIRECT IN 3 SECONDS
+        loginForm.onsubmit = function(e) {
+            e.preventDefault();
+            successModal.style.display = "flex";
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 3000);
+        };
+
+        // CREATE ACCOUNT -> SUCCESS POPUP -> REDIRECT
+        createAccount.onclick = function(e) {
+            e.preventDefault();
+            signupModal.style.display = "none";
+            successModal.style.display = "flex";
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 3000);
+        };
+
+        // CLICK OUTSIDE MODAL TO CLOSE
+        window.onclick = (e) => {
+            if (e.target.classList.contains("modal")) {
+                e.target.style.display = "none";
+            }
+        };
+    </script>
+
+</body>
+</html>

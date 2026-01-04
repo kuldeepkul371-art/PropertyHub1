@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root{
+    --primary-color:#8B8000;
+    --secondary-color:#162d20;
+    --light-background:#f3fdf7;
+    --light-color:#fff;
+    --text-color:#202020;
+    --light-color-2:#f7f7f7;
+    --font-family:"Manrope", serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+body{
+    font-family: var(--font-family);
+    background:var(--light-color);
+}
+
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+header .header_container{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+header .header_container .header_col{
+   flex: 1;
+}
+
+.logo_container{
+    width: 100px;
+}
+
+.logo_container .logo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_list_container{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav_list_container li{
+    list-style: none;
+    font-size: 16px;
+}
+
+.nav_list_container li a{
+    transition: 0.2s linear;
+    font-weight: 1000;
+}
+
+.nav_list_container li a:hover{
+    color: var(--primary-color);
+}
+
+.quote_btn {
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.quote_btn:hover {
+    background: #6d6600;
+}
+
+/* Hero Section Container */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;        /* Adjust height as needed */
+  overflow: hidden;     /* Ensures the zoomed image doesn't overflow */
+}
+
+/* Background Image */
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    
+  transition: transform 0.6s ease;   /* Smooth zoom animation */
+  transform-origin: center;           /* Zoom from center */
+}
+
+/* Zoom In on Hover */
+.hero:hover img {
+  transform: scale(1.12);             /* Zoom level */
+}
+
+
+/* Button Styling */
+.hero .btn {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  background: var(--primary-color);
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--light-color);
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.2 linear;
+   cursor: pointer;
+}
+
+.hero .btn:hover {
+  background: #6d6600;
+}
+
+
+/* Heading */
+.services-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #6d6600;
+    margin-bottom: 40px;
+    text-align: center;        /* Center Heading */
+}
+
+.services-tagline {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 50px;
+    text-align: center;        /* Center Tagline */
+    max-width: 900px;          /* Keeps text neat */
+    margin-left: auto;         /* Centers the block */
+    margin-right: auto;        /* Centers the block */
+}
+
+.icon-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);   /* 6 icons in one row */
+    gap: 40px;
+    justify-items: center;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+/* Icon Style */
+.icon-row i {
+    font-size: 55px;                        /* Bigger icons */
+    padding: 30px;
+    color: #fff;                             /* Icon color */
+    border-radius: 20px;                    /* Rounded background */
+    background: linear-gradient(135deg, #8B8000, #6d6600);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+    transition: 0.3s ease;
+}
+
+/* Hover Effect */
+.icon-row i:hover {
+    transform: scale(1.18);
+    background: linear-gradient(135deg, #8B8000, #6d6600);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+}
+
+
+
+.services-container {
+  width: 100%;
+  padding: 40px 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+}
+
+/* Service Card */
+.service-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Card Hover Effect */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.20);
+}
+
+/* Service Images */
+.service-img {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Image Zoom on Hover */
+.service-card:hover .service-img {
+  transform: scale(1.1);
+}
+
+/* Title */
+.service-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  margin: 15px 0 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Description */
+.service-card p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* Responsive for Tablets */
+@media screen and (max-width: 1024px) {
+  .services-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive for Mobile */
+@media screen and (max-width: 600px) {
+  .services-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+}
+
+.footer {
+    background: #6d6600;   /* dark */
+    padding: 40px 0;
+    text-align: center;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 25px;
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ccc;
+}
+
+.footer-copy {
+    font-size: 18px;
+    margin-top: 10px;
+    color: white;
+}

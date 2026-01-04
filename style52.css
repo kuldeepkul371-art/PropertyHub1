@@ -1,0 +1,549 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root{
+    --primary-color:#8B8000;
+    --secondary-color:#162d20;
+    --light-background:#f3fdf7;
+    --light-color:#fff;
+    --text-color:#202020;
+    --light-color-2:#f7f7f7;
+    --font-family:"Manrope", serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+body{
+    font-family: var(--font-family);
+    background:var(--light-color);
+}
+
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+header .header_container{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+header .header_container .header_col{
+   flex: 1;
+}
+
+.logo_container{
+    width: 100px;
+}
+
+.logo_container .logo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_list_container{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav_list_container li{
+    list-style: none;
+    font-size: 16px;
+}
+
+.nav_list_container li a{
+    transition: 0.2s linear;
+    font-weight: 1000;
+}
+
+.nav_list_container li a:hover{
+    color: var(--primary-color);
+}
+
+.quote_btn {
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.quote_btn:hover {
+    background: #6d6600;
+}
+
+
+
+/* Hero Section Container */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;        /* Adjust height as needed */
+  overflow: hidden;     /* Ensures the zoomed image doesn't overflow */
+}
+
+/* Background Image */
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    
+  transition: transform 0.6s ease;   /* Smooth zoom animation */
+  transform-origin: center;           /* Zoom from center */
+}
+
+/* Zoom In on Hover */
+.hero:hover img {
+  transform: scale(1.12);             /* Zoom level */
+}
+
+
+/* Button Styling */
+.hero .btn {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  background: var(--primary-color);
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--light-color);
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.2 linear;
+   cursor: pointer;
+}
+
+.hero .btn:hover {
+  background: #6d6600;
+}
+
+.mission-section {
+  padding: 60px 80px;
+  background: #f8f9fc;
+}
+
+.mission-title {
+  text-align: center;
+  font-size: 36px;
+  color: #6d6600;
+  margin-bottom: 40px;
+  font-weight: 800;
+}
+
+.mission-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ---- IMAGE ZOOM EFFECT ---- */
+.mission-image {
+  overflow: hidden;         /* prevents image from overflowing when zoomed */
+  border-radius: 20px;      /* keeps corner round even after zoom */
+}
+
+.mission-image img {
+  width: 500px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  cursor: pointer;
+
+  transition: transform 0.4s ease-in-out;   /* smooth zoom effect */
+}
+
+.mission-image img:hover {
+  transform: scale(1.1);    /* zoom-in */
+}
+
+.mission-text {
+  flex: 1;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.mission-text p {
+  margin-bottom: 20px;
+}
+
+
+/* --------------------------------------
+   WHO WE ARE SECTION
+--------------------------------------- */
+
+.who-section {
+  padding: 60px 80px;
+  background: #f8f9fc;
+}
+
+.who-title {
+  text-align: center;
+  font-size: 36px;
+  color: #6d6600;
+  margin-bottom: 40px;
+  font-weight: 800;
+}
+
+.who-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.who-text {
+  flex: 1;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #333;
+  margin: 0%;
+}
+
+.who-text p {
+  margin: 0;
+}
+
+/* ---- IMAGE ZOOM EFFECT ---- */
+.who-image {
+  overflow: hidden;          /* prevents overflow during zoom */
+  border-radius: 20px;       /* keeps rounded corners during zoom */
+}
+
+.who-image img {
+  width: 500px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out;   /* smooth zoom */
+}
+
+.who-image img:hover {
+  transform: scale(1.1);     /* zoom-in on hover */
+}
+
+
+/* Vision Section */
+.vision-section {
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.vision-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #6d6600;
+    margin-bottom: 40px;
+}
+
+/* Image + Text Container */
+.vision-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 0 80px;
+}
+
+/* ---- IMAGE ZOOM EFFECT ---- */
+.vision-image {
+    overflow: hidden;               /* prevents zoom overflow */
+    border-radius: 15px;            /* keeps rounded corners during zoom */
+}
+
+.vision-image img {
+    width: 650px;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    cursor: pointer;
+    box-shadow: 0px 5px 25px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease-in-out;  /* smooth zoom animation */
+}
+
+.vision-image img:hover {
+    transform: scale(1.1);          /* zoom-in on hover */
+}
+
+/* Right Text */
+.vision-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.vision-text p {
+    font-size: 22px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .vision-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .vision-text {
+        text-align: center;
+    }
+
+    .vision-image img {
+        width: 90%;
+    }
+}
+
+.why-section {
+    padding: 40px 60px;
+}
+
+.why-title {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 800;
+    color: #6d6600;
+    margin-bottom: 50px;
+}
+
+/* Container Layout */
+.why-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* Left Side Cards */
+.why-left {
+    flex: 1;
+}
+
+.why-card {
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 
+        0px 10px 30px rgba(0, 0, 0, 0.08),
+        0px 4px 12px rgba(0, 0, 0, 0.05);
+
+    cursor: pointer;
+
+    /* Smooth animation */
+    transition: transform 0.35s ease, 
+                box-shadow 0.35s ease;
+}
+
+/* Hover Effect (POP UP + Zoom Slightly) */
+.why-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 
+        0px 16px 40px rgba(0, 0, 0, 0.18),
+        0px 6px 18px rgba(0, 0, 0, 0.10);
+}
+
+.why-icon {
+    font-size: 28px;
+    color: var(--text-color);
+    margin-top: 3px;
+    transition: color 0.3s ease;
+}
+
+.why-icon:hover {
+    color: #6d6600;
+}
+
+.why-card h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.why-card h3:hover {
+    color: #6d6600;
+}
+
+.why-card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Right Side Image */
+.why-right {
+    flex: 1.3;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.why-right img {
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    transition: transform 0.5s ease;
+}
+
+/* Zoom In on Hover */
+.why-right img:hover {
+    transform: scale(1.08);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .why-container {
+        flex-direction: column;
+    }
+
+    .why-right img {
+        height: 300px;
+    }
+}
+
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 45px;
+    font-weight: 700;
+    color: #6d6600;
+}
+
+.title-underline {
+    width: 90%;
+    height: 2px;
+    background: #d9d9d9;
+    margin: 20px auto 40px auto;
+}
+
+/* Main Container */
+.choose-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Cards */
+.choose-card {
+    width: 31%;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: 0.3s ease;
+}
+
+.choose-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 1.03);
+}
+
+.choose-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.choose-card .card-content {
+    padding: 25px;
+}
+
+.choose-card h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #6d6600;
+}
+
+.choose-card p {
+    margin-top: 12px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .choose-card {
+        width: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    .choose-card {
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 34px;
+    }
+}
+
+.footer {
+    background: #6d6600;   /* dark */
+    padding: 40px 0;
+    text-align: center;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 25px;
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ccc;
+}
+
+.footer-copy {
+    font-size: 18px;
+    margin-top: 10px;
+    color: white;
+}

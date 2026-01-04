@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root{
+    --primary-color:#8B8000;
+    --secondary-color:#162d20;
+    --light-background:#f3fdf7;
+    --light-color:#fff;
+    --text-color:#202020;
+    --light-color-2:#f7f7f7;
+    --font-family:"Manrope", serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+body{
+    font-family: var(--font-family);
+    background:var(--light-color);
+}
+
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+header .header_container{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+header .header_container .header_col{
+   flex: 1;
+}
+
+.logo_container{
+    width: 100px;
+}
+
+.logo_container .logo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_list_container{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav_list_container li{
+    list-style: none;
+    font-size: 16px;
+}
+
+.nav_list_container li a{
+    transition: 0.2s linear;
+    font-weight: 1000;
+}
+
+.nav_list_container li a:hover{
+    color: var(--primary-color);
+}
+
+.quote_btn {
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.quote_btn:hover {
+    background: #6d6600;
+}
+
+/* Hero Section Container */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;        /* Adjust height as needed */
+  overflow: hidden;     /* Ensures the zoomed image doesn't overflow */
+}
+
+/* Background Image */
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    
+  transition: transform 0.6s ease;   /* Smooth zoom animation */
+  transform-origin: center;           /* Zoom from center */
+}
+
+/* Zoom In on Hover */
+.hero:hover img {
+  transform: scale(1.12);             /* Zoom level */
+}
+
+
+/* Button Styling */
+.hero .btn {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  background: var(--primary-color);
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--light-color);
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.2 linear;
+   cursor: pointer;
+}
+
+.hero .btn:hover {
+  background: #6d6600;
+}
+
+/* FEATURED SECTION */
+.featured_section {
+    width: 100%;
+    padding: 80px 0;
+    text-align: center;
+    background: #ffffff;
+}
+
+.featured_subtitle {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.featured_title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: #202020;
+}
+
+/* Tabs */
+.property_tabs {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 50px;
+}
+
+.property_tabs .tab {
+    padding: 12px 26px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    background: #f3f3f3;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.property_tabs .tab.active {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.property_tabs .tab:hover {
+    background: var(--primary-color);
+    color: white;
+    
+}
+
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 20px;
+}
+
+.property-card {
+    width: 100%;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 4px 18px rgba(0,0,0,1.03);
+}
+
+.property-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.property-content {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.property-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.property-specs {
+    font-size: 14px;
+    color: #555;
+}
+
+.property-specs span {
+    margin-right: 12px;
+}
+
+.property-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    white-space: nowrap;
+}
+
+.property-title:hover,
+.property-price:hover {
+    color: #6d6600;
+}
+
+.property-card {
+    cursor: pointer;
+}

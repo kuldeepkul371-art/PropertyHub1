@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Property Hub — Filterable (Featured Properties)</title>
+  <link rel="stylesheet" href="style51.css" />
+  <style>
+
+    /* Helper styles for results */
+
+    #filter-results { 
+      width:90%; 
+      margin:24px auto; 
+      display:none; 
+    }
+
+    #filter-results .results-grid { 
+      display:grid; 
+      grid-template-columns:repeat(3,1fr); 
+      gap:18px; 
+    }
+
+    @media (max-width:1024px){ #filter-results .results-grid{ grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:768px){ #filter-results .results-grid{ grid-template-columns:1fr;} }
+
+    .no-results{ 
+      text-align:center; 
+      padding:24px; 
+      border-radius:12px; 
+      background:#fff; 
+      box-shadow:0 4px 12px rgba(0,0,0,0.08); 
+    }
+
+    .property-card{ 
+      cursor:pointer; 
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header_container">
+    <div class="header_col">
+      <div class="logo_container"><img src="website logo.png" alt="logo" class="logo" /></div>
+    </div>
+    <div class="header_col"></div>
+    <nav class="nav_container">
+      <ul class="nav_list_container">
+        <li><a href="index.html"> Home </a></li>
+				<li><a href="About51.html"> About </a></li>
+				<li><a href="Properties51.html"> Properties </a></li>
+				<li><a href="Services51.html"> Services </a></li>
+				<li><a href="Contact51.html"> Contact </a></li>
+      </ul>
+    </nav>
+    <div class="header_col"></div>
+    <button class="quote_btn" ><a href="login.html"> LOGIN </a></button>
+  </div>
+</header>
+
+<section class="hero_section">
+  <img src="website image.png" class="hero_image" alt="hero">
+  <div class="hero_text">
+    <h1>Find Your Dream Home with Ease!</h1>
+    <p>Discover properties that suit your lifestyle and budget. Whether you’re buying, renting, or selling, we’ve got the perfect solution for you. Your next home is just a search away!</p>
+    <h2>Come Let’s Find Ashiyana Apno Ka</h2>
+  </div>
+
+  <div class="rent_sale_buttons">
+    <button class="rent_btn">For Rent</button>
+    <button class="sale_btn">For Sale</button>
+  </div>
+
+  <div class="property_filter_section" aria-label="Property filter">
+    <div class="filter_container">
+      <div class="filters_row">
+        <div class="filter_group">
+          <div class="input_group">
+            <label for="keyword">Keyword</label>
+            <input id="keyword" list="projects" type="text" placeholder="Keyword" aria-label="Keyword">
+            <datalist id="projects">
+              <option value="NCR Monarch & Crown">
+              <option value="Aditya World City">
+              <option value="Kingdom Apartment">
+              <option value="Galaxy Blue Saphire Plaza">
+              <option value="The Prestige City">
+              <option value="Gaur Yamuna City">
+              <option value="Future Estate by FW Group">
+              <option value="Arihant One">
+              <option value="Solitairian City">
+            </datalist>
+          </div>
+        </div>
+
+        <div class="filter_group">
+          <label for="ptype">Property Type</label>
+          <select id="ptype" aria-label="Property Type">
+            <option value=""> Property Type </option>
+            <option>Apartment</option>
+            <option>Studio Apartment</option>
+            <option>Villa</option>
+            <option>Mansion</option>
+          </select>
+        </div>
+
+        <div class="filter_group">
+          <label for="plocation">Location</label>
+          <select id="plocation" aria-label="Location">
+            <option value="">Location</option>
+            <option>Greater Noida</option>
+            <option>Ghaziabad</option>
+            <option>Rajnagar Extension</option>
+            <option>Indirapuram</option>
+            <option>Yamuna Expressway</option>
+            <option>Hyderabad</option>
+          </select>
+        </div>
+
+        <div class="find_btn_wrapper">
+          <button class="find_my_home_btn" id="clear-filters">Clear Filters</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER RESULTS (hidden by default, will show only when filters active) -->
+  <div id="filter-results" aria-live="polite">
+    <p style="margin-bottom:12px; color:#6d6600; font-weight:700;">Search Results</p>
+    <div class="results-grid" id="results-grid"></div>
+  </div>
+
+</section>
+
+<!-- FEATURED PROPERTIES SECTION -->
+<section class="featured_section">
+  <p class="featured_subtitle">Featured Properties</p>
+  <h2 class="featured_title">Featured Properties Just for You!</h2>
+
+  <div class="property_tabs">
+    <button class="tab active">View All</button>
+    <button class="tab">Apartment</button>
+    <button class="tab">Office</button>
+    <button class="tab">Villas</button>
+    <button class="tab">House</button>
+  </div>
+
+  <div class="properties-grid" id="properties-grid">
+
+    <!-- property cards (data-* attributes used by filter) -->
+    <div class="property-card" data-title="NCR Monarch and Crown" data-type="Apartment" data-location="Greater Noida">
+      <img src="https://newprojects.99acres.com/projects/ncr_group/ncr_monarch/images/i0py09ca_optOrig.jpg" class="property-image" alt="NCR Monarch">
+      <div class="property-content">
+        <div class="property-left">
+          <h3 class="property-title"> NCR Monarch and Crown </h3>
+          <div class="property-specs">
+            <span> 2 BHK </span>
+            <span> 🛏 Beds: 2 </span>
+            <span> 🛁 Baths: 2 </span>
+            <span> 📐 Sqft: 1075 </span>
+            <br><span> Also Available In 3 BHK </span>
+          </div>
+        </div>
+        <p class="property-price"> ₹96+ Lac</p>
+      </div>
+    </div>
+
+    <div class="property-card" data-title="Aditya World City" data-type="Apartment" data-location="Ghaziabad">
+      <img src="https://newprojects.99acres.com/projects/shubh_homes_realcon/shubh_homes_urban_royale/images/f4bwopz_1695039292_446168854.jpg" class="property-image" alt="Aditya">
+      <div class="property-content">
+        <div class="property-left">
+          <h3 class="property-title"> Aditya World City </h3>
+          <div class="property-specs">
+            <span> 2 BHK </span>
+            <span> 🛏 Beds: 2 </span>
+            <span> 🛁 Baths: 2 </span>
+            <span> 📐 Sqft: 950 </span>
+            <br><span> Also Available In 3 BHK </span>
+          </div>
+        </div>
+        <p class="property-price"> ₹55-60 Lac </p>
+      </div>
+    </div>
+
+    <div class="property-card" data-title="Kingdom Apartment" data-type="Apartment" data-location="Rajnagar Extension">
+      <img src="https://manavproperties.com/wp-content/uploads/2025/06/227b67dc-b5f6-489b-9331-20c5f563afef-13.jpg" class="property-image" alt="Kingdom">
+      <div class="property-content">
+        <div class="property-left">
+          <h3 class="property-title"> Kingdom Apartment </h3>
+          <div class="property-specs">
+            <span> 2 BHK </span>
+            <span> 🛏 Beds: 2</span>
+            <span> 🛁 Baths: 2 </span>
+            <span> 📐 Sqft: 1020 </span>
+            <br><span> Also Available In 3 BHK </span>
+          </div>
+        </div>
+        <p class="property-price"> ₹75+ Lac </p>
+      </div>
+    </div>
+
+    <div class="property-card" data-title="Galaxy Blue Shappire Plaza" data-type="Studio Apartment" data-location="Greater Noida">
+      <img src="https://letsdigg.in/wp-content/uploads/2022/07/galaxy-blue-sapphire-plaza-1024x580.jpg" class="property-image" alt="Galaxy">
+      <div class="property-content">
+        <div class="property-left">
+          <h3 class="property-title"> Galaxy Blue Shappire Plaza </h3>
+          <div class="property-specs">
+            <span> Studio Apartment </span>
+            <span> 🛏 Beds:  </span>
+            <span> 🛁 Baths:  </span>
+            <span> 📐 Sqft:  </span>
+          </div>
+        </div>
+        <p class="property-price"> ₹1.5 Cr.+ </p>
+      </div>
+    </div>
+
+    <div class="property-card" data-title="The Prestige City" data-type="Apartment" data-location="Hyderabad">
+      <img src="https://www.prestigecityhyderabad.live/project/the-prestige-city-hyderabad-price.webp" class="property-image" alt="Prestige">
+      <div class="property-content">
+        <div class="property-left">
+          <h3 class="property-title"> The Prestige City </h3>
+          <div class="property-specs">
+            <span> 2 BHK </span>
+            <span> 🛏 Beds: 2 </span>
+            <span> 🛁 Baths: 2 </span>
+            <span> 📐 Sqft: 769 </span>
+            <br><span> Also Available In 3 BHK </span>
+          </div>
+        </div>
+        <p class="property-price"> ₹3.5 Cr.+ </p>
+      </div>
+    </div>
+
+    <div class="property-card" data-title="Gaur Yamuna City" data-type="Apartment" data-location="Yamuna Expressway">
+      <img src="https://newprojects.99acres.com/projects/gaursons_india__/gaur_yamuna_city_16th_parkview/images/eshlclf_1711092334_481716368_optOrig.jpg" class="property-image" alt="Gaur">
+      <div class="property-content">
+        <div class="property-left">
+          <h3 class="property-title"> Gaur Yamuna City </h3>
+          <div class="property-specs">
+            <span> 2 BHK </span>
+            <span> 🛏 Beds: 2 </span>
+            <span> 🛁 Baths: 2 </span>
+            <span> 📐 Sqft: 1000 </span>
+            <br><span> Also Available In 3 BHK </span>
+          </div>
+        </div>
+        <p class="property-price"> ₹1 Cr+ </p>
+      </div>
+    </div>
+
+    <div class="property-card" data-title="Future Estate by FW Group" data-type="Apartment" data-location="Greater Noida">
+      <img src="https://newprojects.99acres.com/projects/abcz_builders._pvt._ltd._/abcz_builders_rhythm_county/images/jlygjlf_1761896757_666329775_optOrig.jpg" class="property-image" alt="Future Estate">
+      <div class="property-content">
+        <div class="property-left">
+          <h3 class="property-title"> Future Estate by FW Group </h3>
+          <div class="property-specs">
+            <span> 2 BHK </span>
+            <span> 🛏 Beds: 2 </span>
+            <span> 🛁 Baths: 2 </span>
+            <span> 📐 Sqft: 1130 </span>
+            <br><span> Also Available In 3 BHK </span>
+          </div>
+        </div>
+        <p class="property-price"> ₹90+ Lac </p>
+      </div>
+    </div>
+
+    <div class="property-card" data-title="Arihant One" data-type="Apartment" data-location="Indirapuram">
+      <img src="https://newprojects.99acres.com/projects/arihant_group_delhi/arihant_one/images/fgs52mz5_optOrig.jpg" class="property-image" alt="Arihant">
+      <div class="property-content">
+        <div class="property-left">
+          <h3 class="property-title"> Arihant One </h3>
+          <div class="property-specs">
+            <span> 3 BHK </span>
+            <span> 🛏 Beds: 3 </span>
+            <span> 🛁 Baths: 3 </span>
+            <span> 📐 Sqft: 1780 </span>
+            <br><span> Also Available In 4 BHK </span>
+          </div>
+        </div>
+        <p class="property-price"> ₹2 Cr+ </p>
+      </div>
+    </div>
+
+    <div class="property-card" data-title="Solitairian City" data-type="Apartment" data-location="Yamuna Expressway">
+      <img src="https://newprojects.99acres.com/projects/solitaire_real_infra/le_solitairian/images/l6bxltuq_optOrig.jpg" class="property-image" alt="Solitairian">
+      <div class="property-content">
+        <div class="property-left">
+          <h3 class="property-title"> Solitairian City </h3>
+          <div class="property-specs">
+            <span> 2 BHK </span>
+            <span> 🛏 Beds: 2 </span>
+            <span> 🛁 Baths: 2 </span>
+            <span> 📐 Sqft: 1000 </span>
+            <br><span> Also Available In 3, 4, 5 BHK </span>
+          </div>
+        </div>
+        <p class="property-price"> ₹80+ Lac </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- rest of the page kept as-is -->
+<section class="services_section">
+  <p class="services_subtitle">Our Services</p>
+  <h2 class="services_title">What We Offer</h2>
+  <div class="services_container">
+    <div class="services_image"><img src="https://firstohiohome.com/wp-content/uploads/2018/01/iStock-521203512.jpg" alt="Buy Home"></div>
+    <div class="services_content">
+      <h3 class="services_heading">Buy a New Home</h3>
+      <p class="services_tagline">Simplify your home-buying journey with expert guidance.</p>
+      <p class="services_text">We provide end-to-end support to help you find the perfect home that matches your lifestyle, budget, and long-term goals.</p>
+    </div>
+  </div>
+</section>
+
+<section class="service-section">
+    <div class="service-content">
+        <h2 class="service-title">Sell a Home</h2>
+        <p class="service-subtitle">Get the best value for your property with our proven strategies.</p>
+
+        <p class="service-text">
+            We combine smart pricing strategies, high-quality marketing, and expert negotiation to help you sell your home at the best possible value. Our team highlights your property’s strongest features and ensures it reaches the right buyers through targeted promotions and modern digital tools. From preparing your listing to finalizing the sale, we handle every step with precision so you can enjoy a smooth, fast, and profitable selling experience.
+        </p>
+    </div>
+
+    <div class="service-image">
+        <img src="https://www.debt.org/wp-content/uploads/2020/06/shutterstock_730777636-1.jpg" alt="Sell Home Image">
+    </div>
+</section>
+
+<section class="rent-home-section">
+    <div class="rent-home-container">
+        
+        <div class="rent-home-image">
+            <img src="https://www.mylethbridgenow.com/wp-content/uploads/2019/09/for_rent.jpg" alt="For Rent">
+        </div>
+
+        <div class="rent-home-content">
+            <h2>Rent a Home</h2>
+            <p class="subtitle">Find rental properties that feel like home.</p>
+
+            <p class="description">
+                Step into a rental experience where quality meets comfort. Our exclusive collection of homes features spacious layouts, contemporary designs, and exceptional neighborhood amenities. Whether you're relocating, upgrading, or searching for a fresh start, we ensure a smooth process from viewing to move-in. Discover a home that offers both elegance and everyday convenience.
+            </p>
+        </div>
+
+    </div>
+
+<section class="location-section">
+    <h2 class="section-title">Discover The Best Location To Call Home</h2>
+
+    <div class="slider-wrapper">
+        <video class="home-video" autoplay loop muted playsinline>
+            <source src="your-video.mp4" type="video/mp4" />
+        </video>
+    </div>
+</section>
+
+
+
+<div class="video-slider">
+
+    <div class="slides-container">
+
+        <div class="slide active">
+            <img src="https://www.paramountgroup.co.in/upload/393d0de1c0bfcdb2f93a823ef07fcf11.jpg" alt="">
+            <div class="slide-text">
+                <h2>Greater Noida</h2>
+                <p>Explore City – Discover the Best Locations</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://www.constructionweekonline.in/cloud/2023/03/15/SKA-Arcedia.jpeg" alt="">
+            <div class="slide-text">
+                <h2>Ghaziabad</h2>
+                <p>Explore City – Discover the Best Locations</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://www.omaxe.com/projectgallery/gallery_1670583028507.jpg" alt="">
+            <div class="slide-text">
+                <h2>Vrindavan</h2>
+                <p>Explore City – Discover the Best Locations</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://i.ytimg.com/vi/hE1hWY9ROI0/maxresdefault.jpg" alt="">
+            <div class="slide-text">
+                <h2>Dehradun</h2>
+                <p>Explore City – Discover the Best Locations</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://homebazaar-blog.s3.ap-south-1.amazonaws.com/knowledge/wp-content/uploads/2022/10/31133133/FeatureImage_Top-10-Posh-Areas-in-Noida.jpg" alt="">
+            <div class="slide-text">
+                <h2>Noida</h2>
+                <p>Explore City – Discover the Best Locations</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhtMb2-gNPhLb7Cc3QaHUPRWVZtXkNBocgNjvNbRsyWp4h97EfKaBibhzp9M7qQz_MeZ0rPzSBRSHs2XQROTbK-uuOIkVceUhsLWDOWgOgfKNdX41FdMul-yeZ52NU2sY8fTwxsbx-w8cwciHn8aNMj4RcceldH6bmhzUpSLS4AWPgEpeRQtAWsRPUEJc/s1920/ATS-kocoon-2.jpg" alt="">
+            <div class="slide-text">
+                <h2>Dwarka</h2>
+                <p>Explore City – Discover the Best Locations</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://miro.medium.com/v2/resize:fit:1358/0*eIzae-wvEoNH9vKu.jpg" alt="">
+            <div class="slide-text">
+                <h2>Gurgaon</h2>
+                <p>Explore City – Discover the Best Locations</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://propertycloud.in/blog/wp-content/uploads/2023/08/LODHA-BELLEZA-CANVA-1536x864.jpg" alt="">
+            <div class="slide-text">
+                <h2>Hyderabad</h2>
+                <p>Explore City – Discover the Best Locations</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</div>
+    <div class="slider-btn next" onclick="moveSlide(1)">&#10095;</div>
+
+</div>
+
+<section class="propertyShowcase">
+
+    <p class="propertyShowcase_sub">Top Properties</p>
+    <h2 class="propertyShowcase_title">Explore Our Top-Rated Listings</h2>
+
+    <!-- CARD 1 -->
+    <div class="estateCard">
+        <img src="https://newprojects.99acres.com/projects/ncr_group/ncr_monarch/images/kbe288m_1753782796_625251985_optOrig.jpg" class="estateImage">
+        <div class="estateInfo">
+            <h3 class="estateTitle"> NCR Monarch and Crown </h3>
+            <div class="estateSpecs">
+                <span> 3 BHK </span>
+                <span> 🛏 Beds: 3 </span>
+                <span> 🛁 Baths: 3 </span>
+                <span> 📐 Sqft: 1680 </span>
+            </div>
+              <p class="estate-price"> ₹1.7 Cr+ </p>
+
+        </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="estateCard">
+        <img src="https://myrealestate.in/storage/2021/04/charms_castle-raj_nagar_extension-ghaziabad-charms_india_pvtltd-592x403.jpg" class="estateImage">
+        <div class="estateInfo">
+            <h3 class="estateTitle">  Kingdom Apartment  </h3>
+            <div class="estateSpecs">
+                <span> 3 BHK </span>
+                <span> 🛏 Beds: 3 </span>
+                <span> 🛁 Baths: 3 </span>
+                <span> 📐 Sqft: 1470 </span>
+            </div>
+                <p class="estate-price"> ₹85+ Lac </p>
+
+        </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="estateCard">
+        <img src="https://www.theprestigecity.in/assets/images/prestige_highlights.jpg" class="estateImage">
+        <div class="estateInfo">
+            <h3 class="estateTitle"> The Prestige City </h3>
+            <div class="estateSpecs">
+                <span> 3 BHK </span>
+                <span> 🛏 Beds:  3 </span>
+                <span> 🛁 Baths: 3 </span>
+                <span> 📐 Sqft: 1798 </span>
+            </div>
+                <p class="estate-price"> ₹4.50 Cr.+ </p>
+        </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="estateCard">
+        <img src="https://newprojects.99acres.com/projects/abcz_builders._pvt._ltd._/abcz_builders_rhythm_county/images/lhgtovf_1761896765_666329925_optOrig.jpg" class="estateImage">
+        <div class="estateInfo">
+            <h3 class="estateTitle"> Future Estate by FW Group </h3>
+            <div class="estateSpecs">
+                <span> 3 BHK </span>
+                <span> 🛏 Beds: 3 </span>
+                <span> 🛁 Baths: 3 </span>
+                <span> 📐 Sqft: 833 </span>
+            </div>
+                <p class="estate-price"> ₹1.40+ Cr </p>
+
+        </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="estateCard">
+        <img src="https://arihantones.in/img/5.jpg" class="estateImage">
+        <div class="estateInfo">
+            <h3 class="estateTitle"> Arihant One </h3>
+            <div class="estateSpecs">
+                <span> 3 BHK </span>
+                <span> 🛏 Beds: 3</span>
+                <span> 🛁 Baths: 3 </span>
+                <span> 📐 Sqft: 2210 </span>
+            </div>
+                <p class="estate-price"> ₹3 Cr+ </p>
+        </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="estateCard">
+        <img src="https://newprojects.99acres.com/projects/solitaire_real_infra/le_solitairian/images/22c1cngs_optOrig.jpg" class="estateImage">
+        <div class="estateInfo">
+            <h3 class="estateTitle"> Solitairian City </h3>
+            <div class="estateSpecs">
+                <span> 3 BHK </span>
+                <span> 🛏 Beds: 3 </span>
+                <span> 🛁 Baths: 3 </span>
+                <span> 📐 Sqft: 1425 </span>
+            </div>
+                <p class="estate-price"> ₹1.14+ Cr </p>
+        </div>
+    </div>
+
+</section>
+
+
+<script>
+    const tabs = document.querySelectorAll(".property_tabs .tab");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+
+            // REMOVE active class from all tabs
+            tabs.forEach(t => t.classList.remove("active"));
+
+            // ADD active class to clicked tab
+            tab.classList.add("active");
+
+        });
+    });
+
+  
+  (function(){
+      const slides = document.querySelectorAll('.slide');
+      const prevBtn = document.querySelector('.slider-btn.prev');
+      const nextBtn = document.querySelector('.slider-btn.next');
+      const counter = document.querySelector('.slide-counter');
+      let current = 0;
+      const total = slides.length;
+      let autoTimer = null;
+      const AUTO_DELAY = 4000; // 4 seconds
+
+      // helper: update classes & aria-hidden
+      function showSlide(idx) {
+        slides.forEach((s, i) => {
+          if (i === idx) {
+            s.classList.add('active');
+            s.setAttribute('aria-hidden', 'false');
+          } else {
+            s.classList.remove('active');
+            s.setAttribute('aria-hidden', 'true');
+          }
+        });
+        current = idx;
+        updateCounter();
+      }
+
+      function updateCounter() {
+        if (!counter) return;
+        counter.textContent = (current + 1) + ' / ' + total;
+      }
+
+      function move(step) {
+        let next = (current + step + total) % total;
+        showSlide(next);
+      }
+
+      // event listeners
+      prevBtn.addEventListener('click', () => {
+        move(-1);
+        restartAuto();
+      });
+      nextBtn.addEventListener('click', () => {
+        move(1);
+        restartAuto();
+      });
+
+      // auto slide
+      function startAuto() {
+        stopAuto();
+        autoTimer = setInterval(() => move(1), AUTO_DELAY);
+      }
+      function stopAuto() {
+        if (autoTimer) clearInterval(autoTimer);
+        autoTimer = null;
+      }
+      function restartAuto() {
+        startAuto();
+      }
+
+      // pause on hover/focus for better UX/accessibility
+      const slider = document.querySelector('.video-slider');
+      slider.addEventListener('mouseenter', stopAuto);
+      slider.addEventListener('mouseleave', startAuto);
+      slider.addEventListener('focusin', stopAuto);
+      slider.addEventListener('focusout', startAuto);
+
+      // keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { move(-1); restartAuto(); }
+        if (e.key === 'ArrowRight') { move(1); restartAuto(); }
+      });
+
+      // init
+      showSlide(0);
+      startAuto();
+    })();
+
+</script>
+
+
+
+
+<footer style="padding:24px;text-align:center;background:#f6f6f6;margin-top:40px;">© Property Hub — Demo
+<!-- LOGIN POPUP MODAL -->
+<div id="loginModal" class="login-modal">
+  <div class="login-modal-content">
+    <span id="closeLoginModal" class="login-close">&times;</span>
+    <h2>Please Login First</h2>
+    <p>You need to login before viewing property details.</p>
+  </div>
+</div>
+
+</footer>
+
+<script src="script1.js"></script>
+</body>
+</html>
